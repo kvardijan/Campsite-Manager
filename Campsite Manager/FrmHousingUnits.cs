@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Campsite_Manager
 {
-    public partial class Form1 : Form
+    public partial class FrmHousingUnits : Form
     {
-        public Form1()
+        public FrmHousingUnits()
         {
             InitializeComponent();
+        }
+
+        private void btnEditReservation_Click(object sender, EventArgs e)
+        {
+            FrmReservation frmReservation = new FrmReservation();
+            frmReservation.ShowDialog();
         }
     }
 }
