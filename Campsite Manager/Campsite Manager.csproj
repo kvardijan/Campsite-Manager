@@ -58,6 +58,10 @@
     <Compile Include="FrmReservation.Designer.cs">
       <DependentUpon>FrmReservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Guest.cs" />
+    <Compile Include="Models\HousingUnit.cs" />
+    <Compile Include="Models\HousingUnitType.cs" />
+    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmHousingUnits.resx">
@@ -88,8 +92,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
