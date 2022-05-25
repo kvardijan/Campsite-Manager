@@ -41,6 +41,7 @@
             this.numCapacity = new System.Windows.Forms.NumericUpDown();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.labelReservationNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,53 +103,54 @@
             // 
             // txtGuest
             // 
-            this.txtGuest.Location = new System.Drawing.Point(184, 92);
+            this.txtGuest.Location = new System.Drawing.Point(191, 92);
             this.txtGuest.Name = "txtGuest";
-            this.txtGuest.Size = new System.Drawing.Size(289, 22);
+            this.txtGuest.Size = new System.Drawing.Size(370, 22);
             this.txtGuest.TabIndex = 6;
             // 
             // cboHousing
             // 
             this.cboHousing.FormattingEnabled = true;
-            this.cboHousing.Location = new System.Drawing.Point(184, 130);
+            this.cboHousing.Location = new System.Drawing.Point(191, 130);
             this.cboHousing.Name = "cboHousing";
-            this.cboHousing.Size = new System.Drawing.Size(289, 24);
+            this.cboHousing.Size = new System.Drawing.Size(370, 24);
             this.cboHousing.TabIndex = 7;
             this.cboHousing.SelectedIndexChanged += new System.EventHandler(this.cboHousing_SelectedIndexChanged);
             // 
             // dtpReservationStart
             // 
-            this.dtpReservationStart.Location = new System.Drawing.Point(184, 171);
+            this.dtpReservationStart.Location = new System.Drawing.Point(191, 171);
             this.dtpReservationStart.Name = "dtpReservationStart";
-            this.dtpReservationStart.Size = new System.Drawing.Size(289, 22);
+            this.dtpReservationStart.Size = new System.Drawing.Size(370, 22);
             this.dtpReservationStart.TabIndex = 8;
             // 
             // dtpReservationEnd
             // 
-            this.dtpReservationEnd.Location = new System.Drawing.Point(184, 213);
+            this.dtpReservationEnd.Location = new System.Drawing.Point(191, 213);
             this.dtpReservationEnd.Name = "dtpReservationEnd";
-            this.dtpReservationEnd.Size = new System.Drawing.Size(289, 22);
+            this.dtpReservationEnd.Size = new System.Drawing.Size(370, 22);
             this.dtpReservationEnd.TabIndex = 9;
             // 
             // numCapacity
             // 
-            this.numCapacity.Location = new System.Drawing.Point(184, 252);
+            this.numCapacity.Location = new System.Drawing.Point(191, 252);
             this.numCapacity.Name = "numCapacity";
-            this.numCapacity.Size = new System.Drawing.Size(289, 22);
+            this.numCapacity.Size = new System.Drawing.Size(370, 22);
             this.numCapacity.TabIndex = 10;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(12, 335);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(126, 39);
+            this.btnSave.Size = new System.Drawing.Size(180, 39);
             this.btnSave.TabIndex = 11;
-            this.btnSave.Text = "Spremi promjene";
+            this.btnSave.Text = "Spremi promjene u bazu";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(374, 335);
+            this.btnCancel.Location = new System.Drawing.Point(462, 335);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(115, 39);
             this.btnCancel.TabIndex = 12;
@@ -156,11 +158,23 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // labelReservationNumber
+            // 
+            this.labelReservationNumber.AutoSize = true;
+            this.labelReservationNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelReservationNumber.Location = new System.Drawing.Point(512, 13);
+            this.labelReservationNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelReservationNumber.Name = "labelReservationNumber";
+            this.labelReservationNumber.Size = new System.Drawing.Size(49, 54);
+            this.labelReservationNumber.TabIndex = 13;
+            this.labelReservationNumber.Text = "#";
+            // 
             // FrmReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 386);
+            this.ClientSize = new System.Drawing.Size(589, 386);
+            this.Controls.Add(this.labelReservationNumber);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.numCapacity);
@@ -199,5 +213,6 @@
         private System.Windows.Forms.NumericUpDown numCapacity;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label labelReservationNumber;
     }
 }

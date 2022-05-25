@@ -30,12 +30,19 @@ namespace Campsite_Manager
             cboHousing.DataSource = units;
             cboHousing.ValueMember = "Id";
             cboHousing.DisplayMember = "UnitName";
+
+            labelReservationNumber.Text = FrmHousingUnits.LastID.ToString();
         }
 
         private void cboHousing_SelectedIndexChanged(object sender, EventArgs e)
         {
             HousingUnit selectedUnit = cboHousing.SelectedItem as HousingUnit;
             if(selectedUnit.GetUnitType() == 3) numCapacity.Maximum = 6;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -22,12 +22,21 @@ namespace Campsite_Manager
         private void btnEditReservation_Click(object sender, EventArgs e)
         {
             FrmReservation frmReservation = new FrmReservation();
+            FrmHousingUnits.LastID = int.Parse(dgvHousingUnits.Rows[dgvHousingUnits.CurrentCell.RowIndex].Cells[0].Value.ToString());
             frmReservation.ShowDialog();
         }
 
+        public static int LastID;
         private void FrmHousingUnits_Load(object sender, EventArgs e)
         {
             ShowReservations();
+        }
+
+        private void GetLastReservationId()
+        {
+            int lastRowIndex;
+            lastRowIndex = dgvHousingUnits.Rows.Count - 1;
+            FrmHousingUnits.LastID = int.Parse(dgvHousingUnits.Rows[lastRowIndex].Cells[0].Value.ToString());
         }
 
         private void ShowReservations()
@@ -52,6 +61,14 @@ namespace Campsite_Manager
                 housingUnit = HousingUnitRepository.GetHousingUnit(cellID);
                 dgvHousingUnits.Rows[i].Cells[2].Value = housingUnit.GetUnitName();
             }
+        }
+
+        private void btnNewReservation_Click(object sender, EventArgs e)
+        {
+            FrmReservation frmReservation = new FrmReservation();
+            GetLastReservationId();
+            FrmHousingUnits.LastID++;
+            frmReservation.ShowDialog();
         }
     }
 }

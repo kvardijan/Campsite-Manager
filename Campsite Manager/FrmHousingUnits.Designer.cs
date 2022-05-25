@@ -30,6 +30,7 @@
         {
             this.dgvHousingUnits = new System.Windows.Forms.DataGridView();
             this.btnEditReservation = new System.Windows.Forms.Button();
+            this.btnNewReservation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHousingUnits)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,11 +61,22 @@
             this.btnEditReservation.UseVisualStyleBackColor = true;
             this.btnEditReservation.Click += new System.EventHandler(this.btnEditReservation_Click);
             // 
+            // btnNewReservation
+            // 
+            this.btnNewReservation.Location = new System.Drawing.Point(192, 407);
+            this.btnNewReservation.Name = "btnNewReservation";
+            this.btnNewReservation.Size = new System.Drawing.Size(162, 43);
+            this.btnNewReservation.TabIndex = 2;
+            this.btnNewReservation.Text = "Nova rezervacija";
+            this.btnNewReservation.UseVisualStyleBackColor = true;
+            this.btnNewReservation.Click += new System.EventHandler(this.btnNewReservation_Click);
+            // 
             // FrmHousingUnits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1073, 464);
+            this.Controls.Add(this.btnNewReservation);
             this.Controls.Add(this.btnEditReservation);
             this.Controls.Add(this.dgvHousingUnits);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -80,6 +92,7 @@
 
         private System.Windows.Forms.DataGridView dgvHousingUnits;
         private System.Windows.Forms.Button btnEditReservation;
+        private System.Windows.Forms.Button btnNewReservation;
     }
 }
 
