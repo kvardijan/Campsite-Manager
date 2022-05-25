@@ -34,6 +34,24 @@ namespace Campsite_Manager
         {
             List<Reservation> reservations = ReservationRepository.GetReservations();
             dgvHousingUnits.DataSource = reservations;
+
+            int rowNumber = dgvHousingUnits.Rows.Count;
+
+            Guest guest = new Guest();
+            for (int i = 0; i < rowNumber; i++) //prikazivanje imena gostiju umjesto IDa u dgv
+            {
+                int cellID = int.Parse(dgvHousingUnits.Rows[i].Cells[1].Value.ToString());
+                guest = GuestRepository.GetGuest(cellID);
+                dgvHousingUnits.Rows[i].Cells[1].Value = guest.MyName();
+            }
+
+            HousingUnit housingUnit = new HousingUnit();
+            for (int i = 0; i < rowNumber; i++) //prikazivanje imena smjestajnih jedinica umjesto IDa u dgv
+            {
+                int cellID = int.Parse(dgvHousingUnits.Rows[i].Cells[2].Value.ToString());
+                housingUnit = HousingUnitRepository.GetHousingUnit(cellID);
+                dgvHousingUnits.Rows[i].Cells[2].Value = housingUnit.GetUnitName();
+            }
         }
     }
 }

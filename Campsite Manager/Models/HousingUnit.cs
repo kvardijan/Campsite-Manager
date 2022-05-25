@@ -23,5 +23,9 @@ namespace Campsite_Manager.Models
             return UnitType;
         }
 
+        public string GetUnitName()
+        {
+            return UnitName;
+        }
     }
 }
