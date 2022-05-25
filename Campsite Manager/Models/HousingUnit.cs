@@ -10,7 +10,18 @@ namespace Campsite_Manager.Models
     {
         public int Id { get; set; }
         public string UnitName { get; set; }
-        public string UnitType { get; set; }
+        public int UnitType { get; set; }
         public int MaxCapacity { get; set; }
+
+        public int GetId()
+        {
+            return Id;
+        }
+
+        public int GetUnitType()
+        {
+            return UnitType;
+        }
+
     }
 }

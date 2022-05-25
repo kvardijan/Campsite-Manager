@@ -114,6 +114,7 @@
             this.cboHousing.Name = "cboHousing";
             this.cboHousing.Size = new System.Drawing.Size(289, 24);
             this.cboHousing.TabIndex = 7;
+            this.cboHousing.SelectedIndexChanged += new System.EventHandler(this.cboHousing_SelectedIndexChanged);
             // 
             // dtpReservationStart
             // 
@@ -173,9 +174,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmReservation";
             this.Text = "FrmReservation";
+            this.Load += new System.EventHandler(this.FrmReservation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
