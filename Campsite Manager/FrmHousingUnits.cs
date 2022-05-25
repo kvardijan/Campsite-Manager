@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Campsite_Manager.Models;
+using Campsite_Manager.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +23,17 @@ namespace Campsite_Manager
         {
             FrmReservation frmReservation = new FrmReservation();
             frmReservation.ShowDialog();
+        }
+
+        private void FrmHousingUnits_Load(object sender, EventArgs e)
+        {
+            ShowReservations();
+        }
+
+        private void ShowReservations()
+        {
+            List<Reservation> reservations = ReservationRepository.GetReservations();
+            dgvHousingUnits.DataSource = reservations;
         }
     }
 }

@@ -35,18 +35,24 @@
             // 
             // dgvHousingUnits
             // 
+            this.dgvHousingUnits.AllowUserToAddRows = false;
+            this.dgvHousingUnits.AllowUserToDeleteRows = false;
+            this.dgvHousingUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvHousingUnits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHousingUnits.Location = new System.Drawing.Point(17, 16);
-            this.dgvHousingUnits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvHousingUnits.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHousingUnits.Name = "dgvHousingUnits";
+            this.dgvHousingUnits.ReadOnly = true;
             this.dgvHousingUnits.RowHeadersWidth = 51;
+            this.dgvHousingUnits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHousingUnits.Size = new System.Drawing.Size(1040, 383);
             this.dgvHousingUnits.TabIndex = 0;
             // 
             // btnEditReservation
             // 
             this.btnEditReservation.Location = new System.Drawing.Point(17, 407);
-            this.btnEditReservation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditReservation.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditReservation.Name = "btnEditReservation";
             this.btnEditReservation.Size = new System.Drawing.Size(167, 43);
             this.btnEditReservation.TabIndex = 1;
@@ -61,9 +67,10 @@
             this.ClientSize = new System.Drawing.Size(1073, 464);
             this.Controls.Add(this.btnEditReservation);
             this.Controls.Add(this.dgvHousingUnits);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmHousingUnits";
             this.Text = "Campsite Manager";
+            this.Load += new System.EventHandler(this.FrmHousingUnits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHousingUnits)).EndInit();
             this.ResumeLayout(false);
 
