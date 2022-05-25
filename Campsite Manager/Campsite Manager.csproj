@@ -69,6 +69,8 @@
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GuestRepository.cs" />
+    <Compile Include="Repositories\HousingUnitRepository.cs" />
     <Compile Include="Repositories\ReservationRepository.cs" />
     <EmbeddedResource Include="FrmHousingUnits.resx">
       <DependentUpon>FrmHousingUnits.cs</DependentUpon>
