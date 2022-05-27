@@ -67,9 +67,37 @@ namespace Campsite_Manager.Repositories
                 guest = CreateObject(reader);
                 reader.Close();
             }
+
+            if (guest == null)
+            {
+                guest = new Guest();
+                guest.Id = GetNextAvalibleGuestId();
+                guest.FirstName = guestFirstName;
+                guest.LastName = guestLastName;
+                InsertGuest(guest);
+            }
+
             DB.CloseConnection();
 
             return guest;
+        }
+
+        public static int GetNextAvalibleGuestId()
+        {
+            List<Guest> guests = new List<Guest>();
+            guests = GetGuests();
+            int id = guests.Count + 1;
+
+            return id;
+        }
+
+        public static void InsertGuest(Guest guest)
+        {
+            string sql = $"INSERT INTO Gosti (ID, Ime, Prezime) VALUES({guest.Id}, '{guest.FirstName}','{guest.LastName}')";
+            DB.SetConfiguration("kvardijan20_DB", "kvardijan20", "%J6i}G!Z");
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
         }
 
         private static Guest CreateObject(SqlDataReader reader)

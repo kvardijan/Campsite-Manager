@@ -43,6 +43,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.labelReservationNumber = new System.Windows.Forms.Label();
             this.txtGuestLastName = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 95);
+            this.label2.Location = new System.Drawing.Point(25, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 16);
             this.label2.TabIndex = 1;
@@ -69,7 +71,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 133);
+            this.label3.Location = new System.Drawing.Point(25, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 16);
             this.label3.TabIndex = 2;
@@ -78,7 +80,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 173);
+            this.label4.Location = new System.Drawing.Point(25, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 16);
             this.label4.TabIndex = 3;
@@ -87,7 +89,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 213);
+            this.label5.Location = new System.Drawing.Point(25, 224);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 16);
             this.label5.TabIndex = 4;
@@ -96,7 +98,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 252);
+            this.label6.Location = new System.Drawing.Point(25, 263);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 16);
             this.label6.TabIndex = 5;
@@ -104,7 +106,7 @@
             // 
             // txtGuestFirstName
             // 
-            this.txtGuestFirstName.Location = new System.Drawing.Point(191, 92);
+            this.txtGuestFirstName.Location = new System.Drawing.Point(191, 103);
             this.txtGuestFirstName.Name = "txtGuestFirstName";
             this.txtGuestFirstName.Size = new System.Drawing.Size(160, 22);
             this.txtGuestFirstName.TabIndex = 6;
@@ -112,7 +114,7 @@
             // cboHousing
             // 
             this.cboHousing.FormattingEnabled = true;
-            this.cboHousing.Location = new System.Drawing.Point(191, 130);
+            this.cboHousing.Location = new System.Drawing.Point(191, 141);
             this.cboHousing.Name = "cboHousing";
             this.cboHousing.Size = new System.Drawing.Size(370, 24);
             this.cboHousing.TabIndex = 7;
@@ -121,7 +123,7 @@
             // dtpReservationStart
             // 
             this.dtpReservationStart.CustomFormat = "yyyy-MM-dd";
-            this.dtpReservationStart.Location = new System.Drawing.Point(191, 171);
+            this.dtpReservationStart.Location = new System.Drawing.Point(191, 182);
             this.dtpReservationStart.Name = "dtpReservationStart";
             this.dtpReservationStart.Size = new System.Drawing.Size(370, 22);
             this.dtpReservationStart.TabIndex = 8;
@@ -129,14 +131,14 @@
             // dtpReservationEnd
             // 
             this.dtpReservationEnd.CustomFormat = "yyyy-MM-dd";
-            this.dtpReservationEnd.Location = new System.Drawing.Point(191, 213);
+            this.dtpReservationEnd.Location = new System.Drawing.Point(191, 224);
             this.dtpReservationEnd.Name = "dtpReservationEnd";
             this.dtpReservationEnd.Size = new System.Drawing.Size(370, 22);
             this.dtpReservationEnd.TabIndex = 9;
             // 
             // numCapacity
             // 
-            this.numCapacity.Location = new System.Drawing.Point(191, 252);
+            this.numCapacity.Location = new System.Drawing.Point(191, 263);
             this.numCapacity.Name = "numCapacity";
             this.numCapacity.Size = new System.Drawing.Size(370, 22);
             this.numCapacity.TabIndex = 10;
@@ -174,16 +176,36 @@
             // 
             // txtGuestLastName
             // 
-            this.txtGuestLastName.Location = new System.Drawing.Point(357, 92);
+            this.txtGuestLastName.Location = new System.Drawing.Point(357, 103);
             this.txtGuestLastName.Name = "txtGuestLastName";
             this.txtGuestLastName.Size = new System.Drawing.Size(204, 22);
             this.txtGuestLastName.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(188, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 16);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Ime";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(354, 84);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 16);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Prezime";
             // 
             // FrmReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 386);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtGuestLastName);
             this.Controls.Add(this.labelReservationNumber);
             this.Controls.Add(this.btnCancel);
@@ -226,5 +248,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label labelReservationNumber;
         private System.Windows.Forms.TextBox txtGuestLastName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

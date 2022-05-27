@@ -15,9 +15,31 @@ namespace Campsite_Manager
 {
     public partial class FrmReservation : Form
     {
-        public FrmReservation()
+        private FrmHousingUnits frmHousingUnits1;
+        private bool reservationExists;
+
+        public FrmReservation(FrmHousingUnits frmHousingUnits, bool existing)
         {
             InitializeComponent();
+
+            frmHousingUnits1 = frmHousingUnits;
+            reservationExists = existing;
+            
+        }
+
+        private void GetReservationData()
+        {
+            Reservation reservation = new Reservation();
+            reservation = ReservationRepository.GetReservation(FrmHousingUnits.LastID);
+            Guest guest = new Guest();
+            guest = GuestRepository.GetGuest(int.Parse(reservation.GuestName));
+
+            txtGuestFirstName.Text = guest.FirstName;
+            txtGuestLastName.Text = guest.LastName;
+            cboHousing.SelectedValue = int.Parse(reservation.Unit.ToString());
+            dtpReservationStart.Value = DateTime.Parse(reservation.ReservationStart);
+            dtpReservationEnd.Value = DateTime.Parse(reservation.ReservationEnd);
+            numCapacity.Value = reservation.Capacity;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -33,6 +55,7 @@ namespace Campsite_Manager
             cboHousing.DisplayMember = "UnitName";
 
             labelReservationNumber.Text = FrmHousingUnits.LastID.ToString();
+            if (reservationExists) GetReservationData();
         }
 
         private void cboHousing_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,7 +81,18 @@ namespace Campsite_Manager
                 + " " + reservation.ReservationStart.ToString()
                 + " " + reservation.ReservationEnd.ToString()
                 + " " + reservation.Capacity.ToString());
-            ReservationRepository.InsertReservation(reservation);
+
+            if (reservationExists)
+            {
+                ReservationRepository.UpdateReservation(reservation);
+            }
+            else
+            {
+                ReservationRepository.InsertReservation(reservation);
+            }
+
+            frmHousingUnits1.RefreshTable();
+            this.Close();
         }
     }
 }

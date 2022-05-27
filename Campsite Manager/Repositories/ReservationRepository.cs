@@ -62,6 +62,24 @@ namespace Campsite_Manager.Repositories
             DB.CloseConnection();
         }
 
+        public static void UpdateReservation(Reservation reservation)
+        {
+            string sql = $"UPDATE Rezervacije SET Gost = {reservation.GuestName}, Smjestaj = {reservation.Unit}, DatumPocetak = '{reservation.ReservationStart}', DatumKraj = '{reservation.ReservationEnd}', Kapacitet = {reservation.Capacity} WHERE ID = {reservation.Id}";
+            DB.SetConfiguration("kvardijan20_DB", "kvardijan20", "%J6i}G!Z");
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+
+        public static void DeleteReservation(Reservation reservation)
+        {
+            string sql = $"DELETE FROM Rezervacije WHERE ID = {reservation.Id}";
+            DB.SetConfiguration("kvardijan20_DB", "kvardijan20", "%J6i}G!Z");
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+
         private static Reservation CreateObject(SqlDataReader reader)
         {
             int id = int.Parse(reader["ID"].ToString());

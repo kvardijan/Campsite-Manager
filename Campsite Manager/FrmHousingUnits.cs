@@ -21,7 +21,7 @@ namespace Campsite_Manager
 
         private void btnEditReservation_Click(object sender, EventArgs e)
         {
-            FrmReservation frmReservation = new FrmReservation();
+            FrmReservation frmReservation = new FrmReservation(this, true);
             FrmHousingUnits.LastID = int.Parse(dgvHousingUnits.Rows[dgvHousingUnits.CurrentCell.RowIndex].Cells[0].Value.ToString());
             frmReservation.ShowDialog();
         }
@@ -61,15 +61,35 @@ namespace Campsite_Manager
                 housingUnit = HousingUnitRepository.GetHousingUnit(cellID);
                 dgvHousingUnits.Rows[i].Cells[2].Value = housingUnit.GetUnitName();
             }
-            
+
+            dgvHousingUnits.AutoResizeColumns();
         }
 
         private void btnNewReservation_Click(object sender, EventArgs e)
         {
-            FrmReservation frmReservation = new FrmReservation();
+            FrmReservation frmReservation = new FrmReservation(this, false);
             GetLastReservationId();
             FrmHousingUnits.LastID++;
             frmReservation.ShowDialog();
+        }
+
+        public void RefreshTable()
+        {
+            ShowReservations();
+        }
+
+        private void btnDeleteReservation_Click(object sender, EventArgs e)
+        {
+            int idToDelete = int.Parse(dgvHousingUnits.Rows[dgvHousingUnits.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            Reservation reservation = new Reservation();
+            reservation = ReservationRepository.GetReservation(idToDelete);
+            var result = MessageBox.Show("Jeste li sigurni da želite izbrisati rezervaciju broj " + idToDelete, "Upozorenje!", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                ReservationRepository.DeleteReservation(reservation);
+                RefreshTable();
+            }
+            
         }
     }
 }
