@@ -53,6 +53,15 @@ namespace Campsite_Manager.Repositories
             return reservations;
         }
 
+        public static void InsertReservation(Reservation reservation)
+        {
+            string sql = $"INSERT INTO Rezervacije (ID, Gost, Smjestaj, DatumPocetak, DatumKraj, Kapacitet) VALUES({reservation.Id}, {reservation.GuestName},{reservation.Unit}, '{reservation.ReservationStart}', '{reservation.ReservationEnd}', {reservation.Capacity})";
+            DB.SetConfiguration("kvardijan20_DB", "kvardijan20", "%J6i}G!Z");
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+
         private static Reservation CreateObject(SqlDataReader reader)
         {
             int id = int.Parse(reader["ID"].ToString());
@@ -67,8 +76,8 @@ namespace Campsite_Manager.Repositories
                 Id = id,
                 GuestName = guestName.ToString(),
                 Unit = unit.ToString(),
-                ReservationStart = Convert.ToDateTime(reservationStart),
-                ReservationEnd = Convert.ToDateTime(reservationEnd),
+                ReservationStart = reservationStart.ToString(),
+                ReservationEnd = reservationEnd.ToString(),
                 Capacity = capacity
             };
             return reservation;

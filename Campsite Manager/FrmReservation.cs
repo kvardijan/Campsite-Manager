@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Campsite_Manager.Models;
+using System.Globalization;
 
 namespace Campsite_Manager
 {
@@ -42,7 +43,22 @@ namespace Campsite_Manager
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+            Reservation reservation = new Reservation();
+            Guest guest = new Guest();
+            guest = GuestRepository.GetGuestByName(txtGuestFirstName.Text, txtGuestLastName.Text);
+            reservation.Id = FrmHousingUnits.LastID;
+            reservation.GuestName = guest.Id.ToString();
+            reservation.Unit = cboHousing.SelectedValue.ToString();
+            reservation.ReservationStart = dtpReservationStart.Value.ToString();
+            reservation.ReservationEnd = dtpReservationEnd.Value.ToString();
+            reservation.Capacity = int.Parse(numCapacity.Value.ToString());
+            MessageBox.Show(reservation.Id.ToString()
+                + " " + reservation.GuestName.ToString()
+                + " " + reservation.Unit.ToString()
+                + " " + reservation.ReservationStart.ToString()
+                + " " + reservation.ReservationEnd.ToString()
+                + " " + reservation.Capacity.ToString());
+            ReservationRepository.InsertReservation(reservation);
         }
     }
 }

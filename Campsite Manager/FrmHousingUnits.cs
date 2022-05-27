@@ -45,7 +45,7 @@ namespace Campsite_Manager
             dgvHousingUnits.DataSource = reservations;
 
             int rowNumber = dgvHousingUnits.Rows.Count;
-
+            
             Guest guest = new Guest();
             for (int i = 0; i < rowNumber; i++) //prikazivanje imena gostiju umjesto IDa u dgv
             {
@@ -53,7 +53,7 @@ namespace Campsite_Manager
                 guest = GuestRepository.GetGuest(cellID);
                 dgvHousingUnits.Rows[i].Cells[1].Value = guest.MyName();
             }
-
+            
             HousingUnit housingUnit = new HousingUnit();
             for (int i = 0; i < rowNumber; i++) //prikazivanje imena smjestajnih jedinica umjesto IDa u dgv
             {
@@ -61,6 +61,7 @@ namespace Campsite_Manager
                 housingUnit = HousingUnitRepository.GetHousingUnit(cellID);
                 dgvHousingUnits.Rows[i].Cells[2].Value = housingUnit.GetUnitName();
             }
+            
         }
 
         private void btnNewReservation_Click(object sender, EventArgs e)

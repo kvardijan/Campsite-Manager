@@ -34,7 +34,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtGuest = new System.Windows.Forms.TextBox();
+            this.txtGuestFirstName = new System.Windows.Forms.TextBox();
             this.cboHousing = new System.Windows.Forms.ComboBox();
             this.dtpReservationStart = new System.Windows.Forms.DateTimePicker();
             this.dtpReservationEnd = new System.Windows.Forms.DateTimePicker();
@@ -42,6 +42,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.labelReservationNumber = new System.Windows.Forms.Label();
+            this.txtGuestLastName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,12 +102,12 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Kapacitet:";
             // 
-            // txtGuest
+            // txtGuestFirstName
             // 
-            this.txtGuest.Location = new System.Drawing.Point(191, 92);
-            this.txtGuest.Name = "txtGuest";
-            this.txtGuest.Size = new System.Drawing.Size(370, 22);
-            this.txtGuest.TabIndex = 6;
+            this.txtGuestFirstName.Location = new System.Drawing.Point(191, 92);
+            this.txtGuestFirstName.Name = "txtGuestFirstName";
+            this.txtGuestFirstName.Size = new System.Drawing.Size(160, 22);
+            this.txtGuestFirstName.TabIndex = 6;
             // 
             // cboHousing
             // 
@@ -119,6 +120,7 @@
             // 
             // dtpReservationStart
             // 
+            this.dtpReservationStart.CustomFormat = "yyyy-MM-dd";
             this.dtpReservationStart.Location = new System.Drawing.Point(191, 171);
             this.dtpReservationStart.Name = "dtpReservationStart";
             this.dtpReservationStart.Size = new System.Drawing.Size(370, 22);
@@ -126,6 +128,7 @@
             // 
             // dtpReservationEnd
             // 
+            this.dtpReservationEnd.CustomFormat = "yyyy-MM-dd";
             this.dtpReservationEnd.Location = new System.Drawing.Point(191, 213);
             this.dtpReservationEnd.Name = "dtpReservationEnd";
             this.dtpReservationEnd.Size = new System.Drawing.Size(370, 22);
@@ -169,11 +172,19 @@
             this.labelReservationNumber.TabIndex = 13;
             this.labelReservationNumber.Text = "#";
             // 
+            // txtGuestLastName
+            // 
+            this.txtGuestLastName.Location = new System.Drawing.Point(357, 92);
+            this.txtGuestLastName.Name = "txtGuestLastName";
+            this.txtGuestLastName.Size = new System.Drawing.Size(204, 22);
+            this.txtGuestLastName.TabIndex = 14;
+            // 
             // FrmReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 386);
+            this.Controls.Add(this.txtGuestLastName);
             this.Controls.Add(this.labelReservationNumber);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -181,7 +192,7 @@
             this.Controls.Add(this.dtpReservationEnd);
             this.Controls.Add(this.dtpReservationStart);
             this.Controls.Add(this.cboHousing);
-            this.Controls.Add(this.txtGuest);
+            this.Controls.Add(this.txtGuestFirstName);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -206,7 +217,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtGuest;
+        private System.Windows.Forms.TextBox txtGuestFirstName;
         private System.Windows.Forms.ComboBox cboHousing;
         private System.Windows.Forms.DateTimePicker dtpReservationStart;
         private System.Windows.Forms.DateTimePicker dtpReservationEnd;
@@ -214,5 +225,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label labelReservationNumber;
+        private System.Windows.Forms.TextBox txtGuestLastName;
     }
 }

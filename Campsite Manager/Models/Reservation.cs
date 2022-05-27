@@ -11,8 +11,8 @@ namespace Campsite_Manager.Models
         public int Id { get; set; }
         public string GuestName { get; set; }
         public string Unit { get; set; }
-        public DateTime ReservationStart { get; set; }
-        public DateTime ReservationEnd { get; set; }
+        public string ReservationStart { get; set; }
+        public string ReservationEnd { get; set; }
         public int Capacity { get; set; }
     }
 }
