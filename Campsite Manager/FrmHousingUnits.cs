@@ -145,5 +145,10 @@ namespace Campsite_Manager
             }
             return aValidRowExists;
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

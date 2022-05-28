@@ -88,16 +88,17 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtSearchBar);
-            this.groupBox1.Location = new System.Drawing.Point(529, 407);
+            this.groupBox1.Location = new System.Drawing.Point(529, 428);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(297, 69);
+            this.groupBox1.Size = new System.Drawing.Size(297, 48);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pretraživanje";
+            this.groupBox1.Text = "Pretraživanje po imenu";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtSearchBar
             // 
-            this.txtSearchBar.Location = new System.Drawing.Point(7, 17);
+            this.txtSearchBar.Location = new System.Drawing.Point(7, 19);
             this.txtSearchBar.Name = "txtSearchBar";
             this.txtSearchBar.Size = new System.Drawing.Size(284, 22);
             this.txtSearchBar.TabIndex = 0;
