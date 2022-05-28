@@ -32,7 +32,10 @@
             this.btnEditReservation = new System.Windows.Forms.Button();
             this.btnNewReservation = new System.Windows.Forms.Button();
             this.btnDeleteReservation = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSearchBar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHousingUnits)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvHousingUnits
@@ -53,7 +56,7 @@
             // 
             // btnEditReservation
             // 
-            this.btnEditReservation.Location = new System.Drawing.Point(17, 407);
+            this.btnEditReservation.Location = new System.Drawing.Point(17, 433);
             this.btnEditReservation.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditReservation.Name = "btnEditReservation";
             this.btnEditReservation.Size = new System.Drawing.Size(167, 43);
@@ -64,7 +67,7 @@
             // 
             // btnNewReservation
             // 
-            this.btnNewReservation.Location = new System.Drawing.Point(192, 407);
+            this.btnNewReservation.Location = new System.Drawing.Point(192, 433);
             this.btnNewReservation.Name = "btnNewReservation";
             this.btnNewReservation.Size = new System.Drawing.Size(162, 43);
             this.btnNewReservation.TabIndex = 2;
@@ -74,7 +77,7 @@
             // 
             // btnDeleteReservation
             // 
-            this.btnDeleteReservation.Location = new System.Drawing.Point(360, 406);
+            this.btnDeleteReservation.Location = new System.Drawing.Point(360, 433);
             this.btnDeleteReservation.Name = "btnDeleteReservation";
             this.btnDeleteReservation.Size = new System.Drawing.Size(162, 43);
             this.btnDeleteReservation.TabIndex = 3;
@@ -82,11 +85,30 @@
             this.btnDeleteReservation.UseVisualStyleBackColor = true;
             this.btnDeleteReservation.Click += new System.EventHandler(this.btnDeleteReservation_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtSearchBar);
+            this.groupBox1.Location = new System.Drawing.Point(529, 407);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(297, 69);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pretraživanje";
+            // 
+            // txtSearchBar
+            // 
+            this.txtSearchBar.Location = new System.Drawing.Point(7, 17);
+            this.txtSearchBar.Name = "txtSearchBar";
+            this.txtSearchBar.Size = new System.Drawing.Size(284, 22);
+            this.txtSearchBar.TabIndex = 0;
+            this.txtSearchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchBar_KeyDown);
+            // 
             // FrmHousingUnits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 464);
+            this.ClientSize = new System.Drawing.Size(842, 515);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDeleteReservation);
             this.Controls.Add(this.btnNewReservation);
             this.Controls.Add(this.btnEditReservation);
@@ -97,6 +119,8 @@
             this.Text = "Campsite Manager";
             this.Load += new System.EventHandler(this.FrmHousingUnits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHousingUnits)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -107,6 +131,8 @@
         private System.Windows.Forms.Button btnEditReservation;
         private System.Windows.Forms.Button btnNewReservation;
         private System.Windows.Forms.Button btnDeleteReservation;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtSearchBar;
     }
 }
 

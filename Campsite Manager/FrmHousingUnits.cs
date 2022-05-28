@@ -22,8 +22,16 @@ namespace Campsite_Manager
         private void btnEditReservation_Click(object sender, EventArgs e)
         {
             FrmReservation frmReservation = new FrmReservation(this, true);
-            FrmHousingUnits.LastID = int.Parse(dgvHousingUnits.Rows[dgvHousingUnits.CurrentCell.RowIndex].Cells[0].Value.ToString());
-            frmReservation.ShowDialog();
+            if (CheckIfAnyRowIsSelected())
+            {
+                FrmHousingUnits.LastID = int.Parse(dgvHousingUnits.Rows[dgvHousingUnits.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                frmReservation.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nije odabrana ni jedna rezervacija!", "Upozorenje!");
+            }
+            
         }
 
         public static int LastID;
@@ -90,6 +98,52 @@ namespace Campsite_Manager
                 RefreshTable();
             }
             
+        }
+
+        private void txtSearchBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            SearchTable(e);
+        }
+
+        private void SearchTable(KeyEventArgs e)
+        {
+            string searchValue = txtSearchBar.Text;
+            for (int i = 0; i < dgvHousingUnits.Rows.Count; i++)
+            {
+                if (txtSearchBar.Text != "")
+                {
+                    if (dgvHousingUnits.Rows[i].Cells["GuestName"].Value.ToString().Contains(searchValue))
+                    {
+                        dgvHousingUnits.Rows[i].Visible = true;
+                        e.Handled = true;
+                    }
+                    else
+                    {
+                        dgvHousingUnits.CurrentCell = null;
+                        dgvHousingUnits.Rows[i].Visible = false;
+                    }
+                }
+                else
+                {
+                    dgvHousingUnits.Rows[i].Visible = true;
+                    dgvHousingUnits.Rows[0].Selected = true;
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private bool CheckIfAnyRowIsSelected()
+        {
+            bool aValidRowExists = false;
+            for (int i = 0; i<dgvHousingUnits.Rows.Count; i++)
+            {
+                if (dgvHousingUnits.Rows[i].Visible == true 
+                    && dgvHousingUnits.Rows[i].Selected == true)
+                {
+                    aValidRowExists = true;
+                }
+            }
+            return aValidRowExists;
         }
     }
 }

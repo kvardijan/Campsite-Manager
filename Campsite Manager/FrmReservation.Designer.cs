@@ -45,6 +45,8 @@
             this.txtGuestLastName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.labelFirstNameNot = new System.Windows.Forms.Label();
+            this.labelLastNameNot = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,9 +141,19 @@
             // numCapacity
             // 
             this.numCapacity.Location = new System.Drawing.Point(191, 263);
+            this.numCapacity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numCapacity.Name = "numCapacity";
             this.numCapacity.Size = new System.Drawing.Size(370, 22);
             this.numCapacity.TabIndex = 10;
+            this.numCapacity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnSave
             // 
@@ -199,11 +211,29 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Prezime";
             // 
+            // labelFirstNameNot
+            // 
+            this.labelFirstNameNot.AutoSize = true;
+            this.labelFirstNameNot.Location = new System.Drawing.Point(232, 82);
+            this.labelFirstNameNot.Name = "labelFirstNameNot";
+            this.labelFirstNameNot.Size = new System.Drawing.Size(0, 16);
+            this.labelFirstNameNot.TabIndex = 17;
+            // 
+            // labelLastNameNot
+            // 
+            this.labelLastNameNot.AutoSize = true;
+            this.labelLastNameNot.Location = new System.Drawing.Point(425, 82);
+            this.labelLastNameNot.Name = "labelLastNameNot";
+            this.labelLastNameNot.Size = new System.Drawing.Size(0, 16);
+            this.labelLastNameNot.TabIndex = 18;
+            // 
             // FrmReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 386);
+            this.Controls.Add(this.labelLastNameNot);
+            this.Controls.Add(this.labelFirstNameNot);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtGuestLastName);
@@ -250,5 +280,7 @@
         private System.Windows.Forms.TextBox txtGuestLastName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelFirstNameNot;
+        private System.Windows.Forms.Label labelLastNameNot;
     }
 }

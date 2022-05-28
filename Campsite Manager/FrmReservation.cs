@@ -68,31 +68,58 @@ namespace Campsite_Manager
         {
             Reservation reservation = new Reservation();
             Guest guest = new Guest();
-            guest = GuestRepository.GetGuestByName(txtGuestFirstName.Text, txtGuestLastName.Text);
-            reservation.Id = FrmHousingUnits.LastID;
-            reservation.GuestName = guest.Id.ToString();
-            reservation.Unit = cboHousing.SelectedValue.ToString();
-            reservation.ReservationStart = dtpReservationStart.Value.ToString();
-            reservation.ReservationEnd = dtpReservationEnd.Value.ToString();
-            reservation.Capacity = int.Parse(numCapacity.Value.ToString());
-            MessageBox.Show(reservation.Id.ToString()
-                + " " + reservation.GuestName.ToString()
-                + " " + reservation.Unit.ToString()
-                + " " + reservation.ReservationStart.ToString()
-                + " " + reservation.ReservationEnd.ToString()
-                + " " + reservation.Capacity.ToString());
-
-            if (reservationExists)
+            if (CheckIfGuestNameIsEntered())
             {
-                ReservationRepository.UpdateReservation(reservation);
+                guest = GuestRepository.GetGuestByName(txtGuestFirstName.Text, txtGuestLastName.Text);
+                reservation.Id = FrmHousingUnits.LastID;
+                reservation.GuestName = guest.Id.ToString();
+                reservation.Unit = cboHousing.SelectedValue.ToString();
+                reservation.ReservationStart = dtpReservationStart.Value.ToString();
+                reservation.ReservationEnd = dtpReservationEnd.Value.ToString();
+                reservation.Capacity = int.Parse(numCapacity.Value.ToString());
+
+                if (reservationExists)
+                {
+                    ReservationRepository.UpdateReservation(reservation);
+                }
+                else
+                {
+                    ReservationRepository.InsertReservation(reservation);
+                }
+
+                frmHousingUnits1.RefreshTable();
+                this.Close();
+            }
+        }
+
+        private bool CheckIfGuestNameIsEntered()
+        {
+            if (txtGuestFirstName.Text == "" || txtGuestLastName.Text == "")
+            {
+                if (txtGuestFirstName.Text == "")
+                {
+                    labelFirstNameNot.Text = "Niste upisali ime!";
+                }
+                else
+                {
+                    labelFirstNameNot.Text = "";
+                }
+
+                if (txtGuestLastName.Text == "")
+                { 
+                    labelLastNameNot.Text = "Niste upisali prezime!";
+                }
+                else
+                {
+                    labelLastNameNot.Text = "";
+                }
+
+                return false;
             }
             else
             {
-                ReservationRepository.InsertReservation(reservation);
+                return true;
             }
-
-            frmHousingUnits1.RefreshTable();
-            this.Close();
         }
     }
 }
